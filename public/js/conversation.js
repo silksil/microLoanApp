@@ -114,6 +114,15 @@ var ConversationPanel = (function() {
 
   // Display a user or Watson message that has just been sent/received
   function displayMessage(newPayload, typeValue) {
+    if (typeof newPayload["actions"] !== 'undefined' ) {
+      if (newPayload["actions"]["0"]["name"] == 'loanFunction') {
+        function loanFunction () {
+          return "1"
+        }
+      }
+    }
+
+
     var isUser = isUserMessage(typeValue);
     var textExists = (newPayload.input && newPayload.input.text)
       || (newPayload.output && newPayload.output.text);

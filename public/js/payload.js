@@ -48,6 +48,7 @@ var PayloadPanel = (function() {
   function payloadUpdateSetup() {
     var currentRequestPayloadSetter = Api.setRequestPayload;
     Api.setRequestPayload = function(newPayloadStr) {
+      newPayloadStr
       currentRequestPayloadSetter.call(Api, newPayloadStr);
       displayPayload(settings.payloadTypes.request);
     };

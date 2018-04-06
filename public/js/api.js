@@ -22,6 +22,7 @@ var Api = (function() {
     },
     setResponsePayload: function(newPayloadStr) {
       responsePayload = JSON.parse(newPayloadStr);
+      console.log(responsePayload)
     }
   };
 
@@ -48,8 +49,9 @@ var Api = (function() {
       }
     };
 
-    console.log(payloadToWatson)
+
     var params = JSON.stringify(payloadToWatson);
+
 
     // Stored in variable (publicly visible through Api.getRequestPayload)
     // to be used throughout the application

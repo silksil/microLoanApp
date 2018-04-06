@@ -1,0 +1,512 @@
+{
+  "name": "ing-loan",
+  "intents": [
+    {
+      "intent": "define-loan",
+      "examples": [
+        {
+          "text": "college"
+        },
+        {
+          "text": "loan"
+        },
+        {
+          "text": "lend"
+        },
+        {
+          "text": "borrow"
+        },
+        {
+          "text": "eligible  to have a loan"
+        },
+        {
+          "text": "morgage"
+        },
+        {
+          "text": "money"
+        },
+        {
+          "text": "request money"
+        },
+        {
+          "text": "lend money for mortage"
+        }
+      ],
+      "description": "Define whether and the type of loan somebody wants"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "type-of-loans",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "student loan",
+          "metadata": null,
+          "synonyms": [
+            "college",
+            "university",
+            "tuition fee",
+            "student",
+            "degree"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "mortgage loan",
+          "metadata": null,
+          "synonyms": [
+            "homeowner's loan",
+            "home",
+            "house",
+            "homeowner",
+            "own home",
+            "property",
+            "land",
+            "mortgage"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "business loan",
+          "metadata": null,
+          "synonyms": [
+            "freelancer",
+            "business investment",
+            "start-up",
+            "company",
+            "shop",
+            "enterprise",
+            "entrepreneur",
+            "business"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "car loan",
+          "metadata": null,
+          "synonyms": [
+            "vehicle loan",
+            "car",
+            "vehicle",
+            "automobile",
+            "jeep",
+            "truck",
+            "station wagen",
+            "wagon",
+            "motor",
+            "motorcar",
+            "sedan"
+          ]
+        }
+      ],
+      "metadata": null,
+      "description": null
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "metadata": null,
+      "description": null
+    },
+    {
+      "entity": "yes_no",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "no",
+          "metadata": null,
+          "synonyms": [
+            "stop",
+            "don't make it offical",
+            "do not make it offical",
+            "don't",
+            "do not"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "yes",
+          "metadata": null,
+          "synonyms": [
+            "continue",
+            "make it official",
+            "give me the loan"
+          ]
+        }
+      ],
+      "metadata": null,
+      "description": null,
+      "fuzzy_match": true
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2017-05-26"
+    }
+  },
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "1. Define type loan 2. Mention money range 3. Ask amount of money",
+      "output": {},
+      "parent": "Welcome",
+      "context": null,
+      "metadata": {
+        "_customizationd": {
+          "mcr": true
+        }
+      },
+      "next_step": null,
+      "conditions": "@type-of-loans",
+      "description": null,
+      "dialog_node": "node_3_1522240426290",
+      "digress_out": "allow_all",
+      "previous_sibling": null
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Ok. If you would reconsider your decision in the future you can contact us again. Enjoy your day :)"
+          ]
+        }
+      },
+      "parent": "node_3_1522316078988",
+      "context": null,
+      "metadata": {},
+      "next_step": null,
+      "conditions": "@yes_no:no",
+      "description": null,
+      "dialog_node": "node_5_1522316700691",
+      "previous_sibling": "node_4_1522316676462"
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "We have deposited 10000 euro on your bank account. Good luck with spending!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_3_1522316078988",
+      "context": null,
+      "metadata": {},
+      "next_step": null,
+      "conditions": "@yes_no:yes",
+      "description": null,
+      "dialog_node": "node_4_1522316676462",
+      "previous_sibling": null
+    },
+    {
+      "type": "slot",
+      "title": null,
+      "output": null,
+      "parent": "node_21_1522244825634",
+      "context": null,
+      "metadata": null,
+      "variable": null,
+      "next_step": null,
+      "conditions": null,
+      "description": null,
+      "dialog_node": "slot_29_1522245577452",
+      "previous_sibling": "slot_25_1522245246372"
+    },
+    {
+      "type": "slot",
+      "title": null,
+      "output": {},
+      "parent": "node_21_1522244825634",
+      "context": null,
+      "metadata": {},
+      "variable": null,
+      "next_step": null,
+      "conditions": null,
+      "description": null,
+      "dialog_node": "slot_25_1522245246372",
+      "previous_sibling": "node_1_1522315678264"
+    },
+    {
+      "type": "standard",
+      "title": "1. Define months 2. Mention payback details 3.Ask make official",
+      "output": {
+        "text": {
+          "values": [
+            "Your requested loan can be given against a interested rate of {x}. In total you will have to pay back {y} over a period of {z} months. Do you want to make the loan official?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_21_1522244825634",
+      "context": null,
+      "metadata": {},
+      "next_step": null,
+      "conditions": "@sys-number",
+      "description": null,
+      "dialog_node": "node_1_1522315678264",
+      "previous_sibling": null
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Planning to make money? Based on the information we have on your account, we can give a loan in between 1000 and 10000 euros. How much do you want to loan?"
+          ]
+        }
+      },
+      "parent": "node_3_1522240426290",
+      "context": {
+      	"requested_loan_amount": "<? @sys-number.literal ?>"
+      }
+      "metadata": {},
+      "next_step": null,
+      "conditions": "@type-of-loans:(business loan)",
+      "description": null,
+      "dialog_node": "node_7_1522241541738",
+      "previous_sibling": "node_6_1522241447433"
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "I didn't really get what kind of loan you want. Is it a student, mortgage, business or car loan?"
+          ]
+        }
+      },
+      "parent": "node_3_1522240426290",
+      "context": null,
+      "metadata": {},
+      "next_step": null,
+      "conditions": "@type-of-loans",
+      "description": null,
+      "dialog_node": "node_18_1522243408219",
+      "previous_sibling": "node_8_1522241593160"
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Studying is fruitful for everyone's future! Based on the information we have on your account, we can give a loan in between 1000 and 10000 euros. How much do you want to loan?"
+          ]
+        }
+      },
+      "parent": "node_3_1522240426290",
+      "context": {
+      	"requested_loan_amount": "<? @sys-number.literal ?>"
+      }
+      "metadata": {},
+      "next_step": null,
+      "conditions": "@type-of-loans:(student loan)",
+      "description": null,
+      "dialog_node": "node_8_1522241593160",
+      "previous_sibling": "node_7_1522241541738"
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "You gotta have a roof on your head! Based on the information we have on your account, we can give a loan in between 1000 and 10000 euros. How much do you want to loan?"
+          ]
+        }
+      },
+      "parent": "node_3_1522240426290",
+      "context": {
+      	"requested_loan_amount": "<? @sys-number.literal ?>"
+      }
+      "metadata": {},
+      "next_step": null,
+      "conditions": "@type-of-loans:(mortgage loan)",
+      "description": null,
+      "dialog_node": "node_6_1522241447433",
+      "previous_sibling": "node_21_1522244825634"
+    },
+    {
+      "type": "standard",
+      "title": "1. Define amount money 2. Ask months",
+      "output": {
+        "text": {
+          "values": [
+            "Within how many months would you like to pay back the money?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_3_1522240426290",
+      "context": {
+      	"payback_months": "<? @sys-number.literal ?>"
+      },
+      "metadata": {
+        "fallback": "leave"
+      },
+      "next_step": null,
+      "conditions": "@sys-number",
+      "description": null,
+      "dialog_node": "node_21_1522244825634",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_5_1522241314776"
+    },
+    {
+      "type": "response_condition",
+      "title": null,
+      "output": {
+        "text": {
+          "values": [
+            "Buying new car?  Nice!  Based on the information we have on your account, we can give a loan in between 1000 and 10000 euros. How much do you want to loan?",
+            "Ok"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_3_1522240426290",
+      "context": {
+      	"requested_loan_amount": "<? @sys-number.literal ?>"
+      }
+      "metadata": {},
+      "next_step": null,
+      "conditions": "@type-of-loans:(car loan)",
+      "description": null,
+      "dialog_node": "node_5_1522241314776",
+      "previous_sibling": null
+    },
+    {
+      "type": "event_handler",
+      "title": null,
+      "output": {},
+      "parent": "slot_25_1522245246372",
+      "context": null,
+      "metadata": null,
+      "next_step": null,
+      "conditions": null,
+      "event_name": "focus",
+      "description": null,
+      "dialog_node": "handler_27_1522245246372",
+      "previous_sibling": "handler_26_1522245246372"
+    },
+    {
+      "type": "event_handler",
+      "title": null,
+      "output": null,
+      "parent": "slot_25_1522245246372",
+      "context": {},
+      "metadata": null,
+      "next_step": null,
+      "conditions": "@",
+      "event_name": "input",
+      "description": null,
+      "dialog_node": "handler_26_1522245246372",
+      "previous_sibling": null
+    },
+    {
+      "type": "event_handler",
+      "title": null,
+      "output": {},
+      "parent": "slot_29_1522245577452",
+      "context": null,
+      "metadata": null,
+      "next_step": null,
+      "conditions": null,
+      "event_name": "focus",
+      "description": null,
+      "dialog_node": "handler_31_1522245577452",
+      "previous_sibling": "handler_30_1522245577452"
+    },
+    {
+      "type": "event_handler",
+      "title": null,
+      "output": null,
+      "parent": "slot_29_1522245577452",
+      "context": null,
+      "metadata": null,
+      "next_step": null,
+      "conditions": null,
+      "event_name": "input",
+      "description": null,
+      "dialog_node": "handler_30_1522245577452",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "1. Define make it official 2. Last response",
+      "output": {},
+      "parent": "node_1_1522315678264",
+      "context": null,
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "next_step": null,
+      "conditions": "@yes_no",
+      "description": null,
+      "dialog_node": "node_3_1522316078988",
+      "digress_out": "allow_all",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand. You can try rephrasing.",
+            "Can you reword your statement? I'm not understanding.",
+            "I didn't get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "metadata": {},
+      "next_step": null,
+      "conditions": "anything_else",
+      "description": null,
+      "dialog_node": "Anything else",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "1. Welcome 2. Ask type loan",
+      "output": {
+        "text": {
+          "values": [
+            "Hello. I am here to help you with your loan.  What type of loan would you like to have?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": null,
+      "context": {
+      	"user_id": "value",
+      	"type_loan": "<? @type-of-loans.literal ?> ",
+      	"min_loan_amount": "value",
+      	"min_loan_amount": "value"
+      }
+      "metadata": {},
+      "next_step": null,
+      "conditions": "welcome",
+      "description": null,
+      "dialog_node": "Welcome",
+      "previous_sibling": null
+    }
+  ],
+  "workspace_id": "259e00de-ef27-46e0-86e9-35574b88f4a5",
+  "counterexamples": [],
+  "learning_opt_out": false
+}
