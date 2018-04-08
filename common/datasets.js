@@ -49,7 +49,7 @@ datasets.consumers = [
   },
 "credit_limit":{
   "currency":"EUR",
-  "amount":"5000"
+  "amount":"6000"
   },
 "highest_education_attained":"Bachelor’s Degree",
 "employment_status":"Employed",

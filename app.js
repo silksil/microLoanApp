@@ -59,44 +59,27 @@ app.post('/api/message', function(req, res) {
       return res.status(err.code || 500).json(err);
     }
 
-    // if (typeof JSON.stringify(data.actions) !== 'undefined') {
-    //   console.log(data.actions)
-    //   if (JSON.stringify(data.actions.name === 'get_max_amount')) {
-    //     data.actions[0].result_variable = { "context.my_max_amount": 'Sil' }
-    //   };
-    // }
-
-
-    // if (data.context.max_amount == false) {
-    //   console.log("hi")
-    //   data.context.max_amount = true
-    //   console.log(data.context.max_amount)
-    // }
-
-
-
-
     // send data to the api based on the id as soon somebody opens the application
     if (data.context.system.dialog_stack[0].dialog_node === 'Welcome'){
        data.context.max_amount = loanalgorithm.data.creditLimit(102)
+       data.context.interest = loanalgorithm.data.interestRate(102)
     }
 
-    // if (data.context.system = 'Welcome'){
-    //    data.context.max_amount = loanalgorithm.data.creditLimit(102)
-    // }
-    // // data.context.min_amount =
-    //
-    // console.log(loanalgorithm.data.minAmount('student loan'))
+    //min amount somebody can borrow based on the type of loan
+    if (typeof data.entities[0] !== 'undefined') {
+      if (typeof data.entities[0].entity !== 'undefined') {
+        if (data.entities[0].entity === 'type-of-loans') {
+          if(typeof data.context.loans !== 'undefined') {
+            data.context.min_amount = loanalgorithm.data.minAmount(data.context.loans.type_of_loan)
+          }
+        }
+      }
+    }
 
-
-
-    // Calling example function, using consumer id 102
-    // let tmpfuncrslt = loanalgorithm.data.myFunc(102);
-    // console.log('creditLimit', tmpfuncrslt);
-
-
-
-
+    //include total payback amount
+    if (data.context.requested_loan_amount !== false) {
+      data.context.payback_amount = JSON.stringify(loanalgorithm.data.payBack(data.context.requested_loan_amount, data.context.interest))
+    }
 
 
     return res.json(updateMessage(payload, data));
