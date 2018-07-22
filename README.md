@@ -1,4 +1,4 @@
-# Watson Assistant Micro Loan Sample Application
+# Micro Loan App (build on Watson Assistant)
 
 ## This app doesn't have any commercial purposes
 The aim of creating this application was to get familiar with IBM's Watson Assistant. This app has not been created for any commercial use or purposes, just for my personal education. To give the app context and display the possibilities of the app, I created an UX as it was an app for a non-existing organisation called United Countries.
