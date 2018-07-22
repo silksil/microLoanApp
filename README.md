@@ -7,7 +7,7 @@ The aim of creating this application was to get familiar with IBM's Watson Assis
 The idea was to provide users with the possibility to get a micro loan based on dummy data already available about the user (e.g. employment status) and input provided in the app itself (e.g. type of loan). With the information provided the user sees whether he/she can request a loan and against which interest rate. Lastly, the user can decide to make the loan official. The algorithm has been kept as simple as possible, but could be extended by including additional variables (e.g. level of education).
 
 ## Visual Representation App
-![micor-loan-watson-app](./watson-micro-loan.gif)
+<img align="center" src="./watson-micro-loan.gif" width="30%" alt="micro-loan-watson-app"/>
 
 ## Watson Assistant
 Many of the functionality of the app is created through the online interface of Watson Assistant. Besides this service, the app communicates with an additional online server of IBM to handle the flow of the conversation. I've added additionally functionality in the repository in order to adapt certain variables (e.g. the total payback amount). For more more information about Watson Assistant [click here](https://www.ibm.com/watson/ai-assistant/).
