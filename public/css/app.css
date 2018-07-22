@@ -21,11 +21,18 @@ div {
   width: 3.125rem;
   height: 3.125rem;
   border-radius: 1.5625rem;
-  background: #AB72F8;
   top: 0.3125rem;
   right: 0.3125rem;
   line-height: 3.125rem;
   vertical-align: middle;
+}
+
+
+.chat-header {
+  padding-top: 10px;
+  color: white;
+  background-color: #5B92E5;
+  height: 40px;
 }
 
 #view-change-button img {
@@ -80,7 +87,7 @@ div {
   margin: 0.75rem;
   overflow-y: auto;
   overflow-x: hidden;
-  height: calc(100% - 4rem);
+  height: calc(85% - 4rem);
 }
 
 .message-inner {
@@ -115,10 +122,11 @@ div {
 .from-user .message-inner {
   position: relative;
   font-size: 1rem;
-  color: #fff;
+  color: darkblue;
   letter-spacing: 0.015rem;
   line-height: 1.3125rem;
-  background: #00B4A0;
+  background: white;
+  border: solid 1px; black;
   border-radius: 1.25rem;
   border-bottom-right-radius: 0;
   text-align: left;
@@ -144,7 +152,8 @@ div {
   right: 0;
   height: 0.375rem;
   width: 0.5rem;
-  background: #1cb3a0;
+  background: #blue;
+
 }
 
 .from-user .message-inner:after {
@@ -177,7 +186,10 @@ div {
 
 .from-watson.latest.top p:before {
   content: ".";
-  color: #9855D4;
+  color: transparent;
+  border: solid 1px blue;
+  border-radius: 25%;
+  overflow: hidden;
   background-image: url("../img/marker_image.png");
   background-size: 0.3125rem 1.3125rem;
   position: absolute;
@@ -205,7 +217,7 @@ div {
 }
 
 #textInput.underline {
-  border-bottom: 2px solid #00B4A0;
+  border-bottom: 2px solid blue;
 }
 
 ::-webkit-input-placeholder {

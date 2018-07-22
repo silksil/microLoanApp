@@ -65,22 +65,10 @@ app.post('/api/message', function(req, res) {
        data.context.interest = loanalgorithm.data.interestRate(102)
     }
 
-    //min amount somebody can borrow based on the type of loan
-    if (typeof data.entities[0] !== 'undefined') {
-      if (typeof data.entities[0].entity !== 'undefined') {
-        if (data.entities[0].entity === 'type-of-loans') {
-          if(typeof data.context.loans !== 'undefined') {
-            data.context.min_amount = loanalgorithm.data.minAmount(data.context.loans.type_of_loan)
-          }
-        }
-      }
-    }
-
     //include total payback amount
     if (data.context.requested_loan_amount !== false) {
-      data.context.payback_amount = JSON.stringify(loanalgorithm.data.payBack(data.context.requested_loan_amount, data.context.interest))
+      data.context.payback_amount = loanalgorithm.data.payBack(data.context.requested_loan_amount, data.context.interest)
     }
-
 
     return res.json(updateMessage(payload, data));
   });

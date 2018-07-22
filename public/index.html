@@ -1,35 +1,33 @@
 <html>
 <head>
   <base href="/">
-  <title>ING Instant Lending App</title>
+  <title> Micro Loan App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta property="og:image" content="ING_lion.png" />
-  <meta property="og:title" content="ING Watson Instant Lending" />
-  <meta property="og:description" content="Application for instant lending with Watson Assistant" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta property="og:image" content="" />
+  <meta property="og:title" content="Microlending App" />
+  <meta property="og:description" content="Microlending App" />
+  <link rel="shortcut icon" href="un_logo.jpeg" type="image/x-icon">
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
   <div id="view-change-button" class="button" onclick="PayloadPanel.togglePanel(event, this)">
-    <img class="option full" src="../img/Chat Button.png">
-    <img class="option not-full" src="../img/Code Button.png">
   </div>
   <div id="contentParent" class="responsive-columns-wrapper">
     <div id="chat-column-holder" class="responsive-column content-column">
-      <div id="chat-top"><div>
+      <div class="chat-header"> Live Chat with the Microlending App of the United Countries</div>
       <div class="chat-column">
         <div id="scrollingChat"></div>
         <label for="textInput" class="inputOutline">
           <input id="textInput" class="input responsive-column"
-            placeholder="Type something" type="text"
+            placeholder="Type your message here" type="text"
             onkeydown="ConversationPanel.inputKeyDown(event, this)">
         </label>
       </div>
     </div>
     <div id="payload-column" class="fixed-column content-column">
       <div id="payload-initial-message">
-        Type something to see the output
+        Type your message here
       </div>
       <div id="payload-request" class="payload"></div>
       <div id="payload-response" class="payload"></div>
