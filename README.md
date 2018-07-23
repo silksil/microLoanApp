@@ -1,7 +1,7 @@
 # Micro Loan App (build on Watson Assistant)
 
 ## This app doesn't have any commercial purposes
-The aim of creating this application was to get familiar with IBM's Watson Assistant. This app has not been created for any commercial use or purposes, just for my personal education. To give the app context and display the possibilities of the app, I created an UX as it was an app for a non-existing organisation called United Countries.
+The aim of creating this application was to get familiar with IBM's Watson Assistant. This app has not been created for any commercial use or purposes, just for my personal education. To give the app context and display the possibilities of the app, I created an UI as it was an app for a non-existing organisation called United Countries.
 
 ## The concept
 The idea was to provide users with the possibility to get a micro loan based on dummy data already available about the user (e.g. employment status) and input provided in the app itself (e.g. type of loan). With the information provided the user sees whether he/she can request a loan and against which interest rate. Lastly, the user can decide to make the loan official. The algorithm has been kept as simple as possible, but could be extended by including additional variables (e.g. level of education).
