@@ -1,4 +1,4 @@
-const datasets = require('../common/datasets.js');
+const datasets = require('./dataset.js');
 
 const calculator = {
   creditLimit: function(consNo) {

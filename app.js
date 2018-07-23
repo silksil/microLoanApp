@@ -20,8 +20,7 @@ var express = require('express'); // app server
 var bodyParser = require('body-parser'); // parser for post requests
 var watson = require('watson-developer-cloud'); // watson sdk
 var app = express();
-const loanalgorithm = require('./controller/loanalgorithm.js');
-const datasets = require('./common/datasets.js');
+const loanalgorithm = require('./dataHandling/loanalgorithm.js');
 
 // Bootstrap application settings
 app.use(express.static('./public')); // load UI from public folder
