@@ -10,4 +10,4 @@ The idea was to provide users with the possibility to get a micro loan based on 
 <img align="center" src="./watson-micro-loan.gif" width="30%" alt="micro-loan-watson-app"/>
 
 ## Watson Assistant
-Many of the functionality of the app is created through the online interface of Watson Assistant. Besides this service, the app communicates with an additional online server of IBM to handle the flow of the conversation. I've added additionally functionality in the repository in order to adapt certain variables (e.g. the total payback amount). For more more information about Watson Assistant [click here](https://www.ibm.com/watson/ai-assistant/).
+Many of the functionality of the app is created through the online interface of Watson Assistant. For more more information about Watson Assistant [click here](https://www.ibm.com/watson/ai-assistant/).
